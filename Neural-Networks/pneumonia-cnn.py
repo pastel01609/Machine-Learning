@@ -26,6 +26,7 @@ model = Sequential()
 #Conv2d > MaxPooling2D, Dropout, Flatten, Dense, Dropout, sigmoid
 
 model.add(Conv2D(32, (3, 3), activation="relu", input_shape=(64, 64, 3)))
+model.add(Conv2D(32, (3,3), activation = "relu", input_shape=(64,64,3)))
 model.add(MaxPooling2D(pool_size = (2, 2)))
 model.add(Dropout(0.5))
 model.add(Flatten())
@@ -46,17 +47,17 @@ train_datagen = ImageDataGenerator(rescale = 1./255,
 
 test_datagen = ImageDataGenerator(rescale = 1./255)
 
-training_set = train_datagen.flow_from_directory("../chest_xray/train",
+training_set = train_datagen.flow_from_directory("C:/Users/silva\Documents/programming/datasci/Neural-Networks/chest_xray/train",
                                                  target_size = (64, 64),
                                                  batch_size = 32,
                                                  class_mode = 'binary')
 
-validation_set = test_datagen.flow_from_directory("../chest_xray/val",
+validation_set = test_datagen.flow_from_directory("C:/Users/silva\Documents/programming/datasci/Neural-Networks/chest_xray/val",
                                                  target_size = (64, 64),
                                                  batch_size = 32,
                                                  class_mode = 'binary')
 
-test_set = test_datagen.flow_from_directory("../chest_xray/test",
+test_set = test_datagen.flow_from_directory("C:/Users/silva\Documents/programming/datasci/Neural-Networks/chest_xray/test",
                                                  target_size = (64, 64),
                                                  batch_size = 32,
                                                  class_mode = 'binary')
